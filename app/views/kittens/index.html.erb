@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>All Kittens</h1>
+
+<div>
+    <% @kittens.each do |kitten|%>
+        <%= kitten.name %>
+        <%= kitten.age %>
+        <%= kitten.cuteness %>
+        <%= kitten.softness %>
+    <% end %>
+</div>
+
+<%= link_to "New kitten", new_kitten_path %>

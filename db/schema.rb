@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_27_132602) do
-  create_table "kittens", force: :cascade do |t|
-    t.string "name"
-    t.integer "age"
-    t.string "cuteness"
-    t.string "softness"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+ActiveRecord::Schema[7.0].define(version: 20_220_927_132_602) do
+  create_table 'kittens', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'age'
+    t.string 'cuteness'
+    t.string 'softness'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
-
 end
