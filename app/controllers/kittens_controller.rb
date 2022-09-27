@@ -1,5 +1,5 @@
 class KittensController < ApplicationController
-  before_action :set_car, only: %i[show edit update destroy]
+  before_action :set_kitten, only: %i[show edit update destroy]
 
   def index
     @kittens = Kitten.all
@@ -13,13 +13,15 @@ class KittensController < ApplicationController
 
   def create
     @kitten = Kitten.new(kitten_params)
-    if @kitten.save
-        format.html { redirect_to kitten_url(@kitten), notice: "Kitten was successfully created." }
+    respond_to do |format|
+      if @kitten.save
+        format.html { redirect_to @kitten, notice: 'Kitten was successfully created.' }
         format.json { render :show, status: :created, location: @kitten }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @kitten.errors, status: :unprocessable_entity }
       end
+    end
   end
 
   def edit; end
@@ -36,6 +38,6 @@ class KittensController < ApplicationController
   end
 
   def kitten_params
-
+    params.require(:kitten).permit(:name, :age, :cuteness, :softness)
   end
 end
