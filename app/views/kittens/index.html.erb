@@ -2,13 +2,14 @@
 
 <h1>All Kittens</h1>
 
+<%= link_to "New kitten", new_kitten_path %>
+
 <div>
   <% @kittens.each do |kitten| %>
     <%= render kitten %>
     <p>
       <%= link_to "Show this kitten", kitten %>
+      <%= button_to "Destroy this kitten", kitten, method: :delete %>
     </p>
   <% end %>
 </div>
-
-<%= link_to "New kitten", new_kitten_path %>
