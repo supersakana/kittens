@@ -38,7 +38,14 @@ class KittensController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    @kitten.destroy
+
+    respond_to do |format|
+      format.html { redirect_to kittens_url, notice: 'Kitten was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
 
   private
 
